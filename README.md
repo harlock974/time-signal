@@ -5,7 +5,7 @@ A JJY/MSF/WWVB/DCF77 time signal radio transmitter for Raspberry Pi
 
 ## Platforms
 
-**time-signal** has been succesfully tested on Raspberry Pi 3 Model B Rev 1.2 and Zero W.
+**time-signal** has been succesfully tested on Raspberry Pi Zero W, Pi 3 Model B Rev 1.2 and Pi 4 Model B Rev 1.1.
 
 ## Dependencies
 
@@ -13,6 +13,14 @@ A JJY/MSF/WWVB/DCF77 time signal radio transmitter for Raspberry Pi
 
 ```
 sudo apt-get install wiringpi
+```
+
+For Raspberry Pi 4, do :
+
+```
+cd /tmp
+wget https://project-downloads.drogon.net/wiringpi-latest.deb
+sudo dpkg -i wiringpi-latest.deb
 ```
 
 ## Build
