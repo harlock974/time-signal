@@ -49,3 +49,23 @@ sudo ./time-signal [OPTIONS]
 ![piezo](https://github.com/harlock974/time-signal/assets/6268242/820dd309-eb45-47b9-a837-682d7d1adbf2)
 
 What is fun with piezo speaker is that you actually hear the modulated signal. The range is limited, around 2 cm max. As these devices are conceived for audible sound, they work better with JJY 40 kHz signal, which is the lowest frequency time service.
+
+For a longer range and still simple circuit, you can use a ferrite antenna salvaged from an AM receiver with a N mosfet amplifier. You'll then have this 3 components circuit :
+
+![MOSFET_OSCILLATOR_JJY40 EMF](https://github.com/harlock974/time-signal/assets/6268242/0602c816-f4b7-4955-aaed-0eb1e36e3022)
+
+![DSC_4398s](https://github.com/harlock974/time-signal/assets/6268242/3a3ce337-c3cd-41d2-af07-a76bfd2c779e)
+
+_The hairy 3 components circuit_
+
+If you don't have a mosfet, you can use a NPN transistor instead with a 4.7K resistor between its base and GPIO4.
+
+As small mosfets like BS270 can handle up to 250 mA, you can design a more powerful transmitter with two complementary mosfets as a NOT gate and a lower value resistor :
+
+![DUAL-MOSFET_OSCILLATOR_JJY40s](https://github.com/harlock974/time-signal/assets/6268242/39b1b727-c7c0-4f64-bfb6-f22c3791dee8)
+
+I successfully tested these circuits with JJY40 et DCF77 signals and reached a range of ten meters with JJY40 and the dual mosfet configuration.
+
+![DSC_4399s](https://github.com/harlock974/time-signal/assets/6268242/9069a2a0-c241-44fa-8030-728f90dce124)
+
+_G-Shock strong reception (L3)_
