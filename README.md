@@ -60,6 +60,13 @@ _The hairy 3 components circuit_
 
 If you don't have a mosfet, you can use a NPN transistor instead with a 4.7K resistor between its base and GPIO4.
 
+Capacitor value depends on antenna inductance and target frequency : `C = 1 / (4×π²×L×f²)`
+
+AM antennae have usually an inductance between 500 and 700 µH, so the theoretical C values are :
+* 40000 Hz : 26 nF
+* 60000 Hz : 12 nF
+* 77500 Hz :  7 nF
+
 As small mosfets like BS270 can handle up to 250 mA, you can design a more powerful transmitter with two complementary mosfets as a NOT gate and a lower value resistor :
 
 ![DUAL-MOSFET_OSCILLATOR_JJY40s](https://github.com/harlock974/time-signal/assets/6268242/39b1b727-c7c0-4f64-bfb6-f22c3791dee8)
