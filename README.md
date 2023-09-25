@@ -56,9 +56,9 @@ The simplest hardware you can use to transmit the signal is to connect a coil an
 
 ![IMG_20230925_212405](https://github.com/harlock974/time-signal/assets/6268242/79d53d74-a45c-4ef1-8484-cf3a85fff586)
 
-Here with a 60cm wire and 14 turns of 13mm diameter, the range reaches 10cm.
+Here with a 60cm wire and 14 turns of 13mm diameter, the range is quite decent : 10cm for DCF77 and 45cm for JJY at 40 kHz. 
 
-For a longer range and still simple circuit, you can use a ferrite antenna salvaged from an AM receiver with a N mosfet amplifier. You'll then have this 3 components circuit :
+For a longer range and still simple circuit, you can use a ferrite antenna salvaged from an AM receiver with a N mosfet as amplifier. You'll then have this 3 components + antenna circuit :
 
 ![MOSFET_OSCILLATOR_JJY40 EMF](https://github.com/harlock974/time-signal/assets/6268242/0602c816-f4b7-4955-aaed-0eb1e36e3022)
 
