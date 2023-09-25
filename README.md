@@ -1,5 +1,5 @@
 # time-signal
-A multiband time signal radio transmitter for Raspberry Pi
+A multiband time signal radio transmitter for Raspberry Pi.
 
 **time-signal** allows to convert a Raspberry Pi to a radio time server using using either JJY, MSF, WWVB or DCF77 protocol, allowing to automatically adjust time on radio-controlled watch or clock. 
 
