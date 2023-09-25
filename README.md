@@ -47,11 +47,16 @@ sudo ./time-signal [OPTIONS]
 
 ## Hardware
 
-**time-signal** uses GPIO 4 (pin 7) to transmit the modulated carrier wave. The simplest hardware you can use to transmit the signal is to connect a piezo speaker between GPIO 4 and a ground pin (for example pin 6). Check on datasheet if your piezo speaker could be directly connected to GPIO, as litterature on this subject is contradictory. In doubt, use a 1k resistor and a flyback diode :
+**time-signal** uses GPIO 4 (pin 7) to transmit the modulated carrier wave and a Ground pin. 5V power pin could also be used by your circuit if you want to amplify the signal.
 
-![piezo](https://github.com/harlock974/time-signal/assets/6268242/820dd309-eb45-47b9-a837-682d7d1adbf2)
+![Capture d’écran_2023-09-25_21-27-04](https://github.com/harlock974/time-signal/assets/6268242/d27c548d-a9a9-4dd3-8360-b7247b49799a)
+_[Raspberry Pi pinout](https://pinout.xyz)_
 
-What is fun with piezo speaker is that you actually hear the modulated signal. The range is limited, around 2 cm max. As these devices are conceived for audible sound, they work better with JJY 40 kHz signal, which is the lowest frequency time service.
+The simplest hardware you can use to transmit the signal is to connect a coil and a 220Ω resistor between GPIO4 and ground :
+
+![IMG_20230925_212405](https://github.com/harlock974/time-signal/assets/6268242/79d53d74-a45c-4ef1-8484-cf3a85fff586)
+
+Here with a 60cm wire and 14 turns of 13mm diameter, the range reaches 10cm.
 
 For a longer range and still simple circuit, you can use a ferrite antenna salvaged from an AM receiver with a N mosfet amplifier. You'll then have this 3 components circuit :
 
