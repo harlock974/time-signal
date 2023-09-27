@@ -29,7 +29,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <wiringPi.h>
 #include "time-services.h"
 
-#define CLOCKPIN 7		// wiringpi pin's numbering scheme
+#define CLOCKPIN 7	// wiringpi pin's numbering scheme
 
 int usage(const char *msg, const char *progname)
 	{
@@ -169,7 +169,7 @@ while(1)
 		clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &target_wait, NULL);
 		
 		if (service == JJY) pinMode (CLOCKPIN, GPIO_CLOCK);	// Set signal to HIGH
-		else pinMode (CLOCKPIN, OUTPUT);					// Set signal to LOW
+		else pinMode (CLOCKPIN, OUTPUT);			// Set signal to LOW
 		
 		if (verbose)
 			{
@@ -181,7 +181,7 @@ while(1)
 		clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &target_wait, NULL);
 		
 		if (service == JJY) pinMode (CLOCKPIN, OUTPUT);	// Set signal to LOW
-		else pinMode (CLOCKPIN, GPIO_CLOCK);			// Set signal to HIGH
+		else pinMode (CLOCKPIN, GPIO_CLOCK);		// Set signal to HIGH
 		}
 		
 	minute_start += 60;
