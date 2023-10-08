@@ -125,16 +125,16 @@ else return usage("Please choose a service name with -s option\n", argv[0]);
 // Check if board is pi4
 f=fopen("/proc/device-tree/model","r");
 if (f != NULL)
+	{
+	getline (&lineptr, &n, f);
+	if (verbose) puts(lineptr);
+	if (strstr(lineptr, "Pi 4"))
 		{
-		getline (&lineptr, &n, f);
-		if (verbose) puts(lineptr);
-		if (strstr(lineptr, "Pi 4"))
-			{
-			//puts("Raspberry Pi 4 detected.\n");
-			frequency = frequency*16/45; // Frequency correction for Pi4 oscillator (19.2 -> 54 Mhz)
-			}
-		fclose(f);
+		//puts("Raspberry Pi 4 detected.\n");
+		frequency = frequency*16/45; // Frequency correction for Pi4 oscillator (19.2 -> 54 Mhz)
 		}
+	fclose(f);
+	}
 
 wiringPiSetup ();
 pinMode (CLOCKPIN, GPIO_CLOCK);
