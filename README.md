@@ -39,7 +39,7 @@ sudo ./time-signal [OPTIONS]
 
 -s <service> :  Time service: either of DCF77, WWVB, JJY40, JJY60, MSF
 
--v : Verbose. Show modulation enveloppe.
+-v : Verbose. Show platform name and modulation enveloppe.
 
 -c : Send carrier wave only, without time signal. Usefull for testing frequencies.
 
