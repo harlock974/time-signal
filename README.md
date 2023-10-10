@@ -112,7 +112,12 @@ If you have an oscilloscope, connect it between the antenna and the capacitor, a
 
 # Credits and references
 
-Large parts of time-signal code comes from Henner Zeller [txtempus](https://github.com/hzeller/txtempus).
+Large parts of time-signal code come from Henner Zeller [txtempus](https://github.com/hzeller/txtempus). The main differences between time-signal and txtempus are :
+
+* txtempus works on Raspberry Pi 3 and Zero W and Jetson Nano ; time-signal works on Raspberry Pi 3, 4 and Zero W.
+* txtempus is written in C++ while time-signal is written in C and doesn't need CMake to be built.
+* time-signal relies on [Wiring Pi](http://wiringpi.com/) library to generate the carrier wave, while txtempus doesn't need any library. So time-signal's code is simpler but dependent on the portability of Wiring Pi.
+* time-signal doesn't use an attenuation pin, so the required hardware is simpler.
 
 Some useful references :
 
