@@ -78,7 +78,7 @@ As small mosfets like BS270 can handle up to 250 mA, you can design a more power
 
 I successfully tested these circuits with JJY40 et DCF77 signals and reached a range of ten meters with JJY40 and the dual mosfet configuration.
 
-![DSC_4399s](https://github.com/harlock974/time-signal/assets/6268242/9069a2a0-c241-44fa-8030-728f90dce124)
+![269642939-9069a2a0-c241-44fa-8030-728f90dce124](https://github.com/harlock974/time-signal/assets/6268242/c74016e5-7b95-4ce8-92b7-7234ac943319)
 
 _G-Shock strong reception (L3)_
 
@@ -106,16 +106,15 @@ AM antennas have usually an inductance between 500 and 700 µH, so the theoretic
 
 If you have an oscilloscope, connect it between the antenna and the capacitor, and change the value of the latter to obtain the larger and cleaner signal, that is a nice sinusoid.
 
+| Poorly tuned antenna (40kHz, 10nF) | Quite well tuned antenna (40kHz, 33nF) |
+| --- | --- |
+| ![DSC_4430-40kHz-10nF-Oregon-s](https://github.com/harlock974/time-signal/assets/6268242/f2e38580-56a7-433d-a44b-d1c1c54e14e7) | ![DSC_4429-40kHz-33nF-Oregon-s](https://github.com/harlock974/time-signal/assets/6268242/ba1f4ecf-09a3-4918-a5db-98147c262389) |
+
 # Credits and references
 
-Large parts of time-signal code comes from Henner Zeller [txtempus](https://github.com/hzeller/txtempus). txtempus code is great to understand the various time signals encoding schemes. The main differences between time-signal and txtempus are :
+Large parts of time-signal code comes from Henner Zeller [txtempus](https://github.com/hzeller/txtempus).
 
-* txtempus works on Raspberry Pi 3 and Zero W and Jetson Nano. time-signal works on Raspberry Pi 3, 4 and Zero W.
-* txtempus is written in C++ while time-signal is written in C. time-signal doesn't need the cumbersome CMake to compile.
-* time-signal relies on [Wiring Pi](http://wiringpi.com/) library to generate the carrier wave, while txtempus doesn't need any library. So the portability of time-signal is dependent on the portability of Wiring Pi.
-* time-signal doesn't use an attenuation pin, so the required hardware is simpler.
-
-Useful references :
+Some useful references :
 
 1. New ideas about designing low frequencies antennas : Slevin, Cohen and Golkowski (2021), "Wideband VLF/LF Transmission from an Electrically-Small Antenna by Means of Time-Varying Non-Reciprocity via High-Speed Switches", URSI GASS 2021, Rome, Italy, 28 August - 4 September 2021.
 2. Ferrite antennas : https://www.electronics-notes.com/articles/antennas-propagation/ferrite-rod-bar-antenna/basics-tutorial.php
