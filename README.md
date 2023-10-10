@@ -120,3 +120,4 @@ Some useful references :
 2. Ferrite antennas : https://www.electronics-notes.com/articles/antennas-propagation/ferrite-rod-bar-antenna/basics-tutorial.php
 3. Discussion in txtempus github about how to design longest range transmitters : https://github.com/hzeller/txtempus/issues/8
 4. Andreas Spiess video about designing a DCF77 transmitter : https://youtu.be/6SHGAEhnsYk
+5. Wikipedia pages about time services : [DCF77](https://en.wikipedia.org/wiki/DCF77), [WWVB](https://en.wikipedia.org/wiki/WWVB), [MSF](https://en.wikipedia.org/wiki/Time_from_NPL_(MSF)), [JJY](https://en.wikipedia.org/wiki/JJY).
