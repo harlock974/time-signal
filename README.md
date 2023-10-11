@@ -54,7 +54,7 @@ sudo ./time-signal [OPTIONS]
 ![Capture d’écran_2023-09-25_21-27-04](https://github.com/harlock974/time-signal/assets/6268242/d27c548d-a9a9-4dd3-8360-b7247b49799a)
 _[Raspberry Pi pinout](https://pinout.xyz)_
 
-The simplest hardware you can use to transmit the signal is to connect a coil and a 220Ω resistor between GPIO4 and ground :
+The simplest hardware you can use to transmit the signal is to connect a coil and a 220Ω resistor in serie between GPIO4 and a ground pin :
 
 ![IMG_20230925_212405](https://github.com/harlock974/time-signal/assets/6268242/79d53d74-a45c-4ef1-8484-cf3a85fff586)
 
