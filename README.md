@@ -104,7 +104,7 @@ AM antennas have usually an inductance between 500 and 700 µH, so the theoretic
 * 60000 Hz : 12 nF
 * 77500 Hz :  7 nF
 
-If you have an oscilloscope, connect it between the antenna and the capacitor, and change the value of the latter to obtain the larger and cleaner signal, that is a nice sinusoid.
+If you have an oscilloscope, connect it between the antenna and the capacitor, run time-signal with '-c' option and change the value of the capacitor to obtain the larger and cleaner signal, that is a nice sinusoid.
 
 | Poorly tuned antenna (40kHz, 10nF) | Quite well tuned antenna (40kHz, 33nF) |
 | --- | --- |
