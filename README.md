@@ -74,7 +74,8 @@ C1 capacitor value depends on antenna inductance and target frequency (see below
 
 As small mosfets like BS270 can handle up to 250 mA, you can design a more powerful transmitter with two complementary mosfets as a NOT gate and a lower value resistor :
 
-![DUAL-MOSFET_OSCILLATOR_JJY40s](https://github.com/harlock974/time-signal/assets/6268242/39b1b727-c7c0-4f64-bfb6-f22c3791dee8)
+![DUAL-MOSFET_OSCILLATOR_JJY40s](https://github.com/harlock974/time-signal/assets/6268242/b53c2782-183a-449b-9a01-d93ef6c92044)
+
 
 I successfully tested these circuits with JJY40 et DCF77 signals and reached a range of ten meters with JJY40 and the dual mosfet configuration.
 
