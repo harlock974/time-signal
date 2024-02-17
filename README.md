@@ -10,22 +10,6 @@ A multiband time signal radio transmitter for Raspberry Pi.
 * Raspberry Pi 3 Model B Rev 1.2
 * Raspberry Pi 4 Model B Rev 1.1
 
-## Dependencies
-
-**time-signal** relies on [Wiring Pi](http://wiringpi.com/) library, which should be pre-installed with standard Raspbian systems. If not (e.g. on Rasbian Lite), do :
-
-```
-sudo apt-get install wiringpi
-```
-
-For Raspberry Pi 4, do :
-
-```
-cd /tmp
-wget https://project-downloads.drogon.net/wiringpi-latest.deb
-sudo dpkg -i wiringpi-latest.deb
-```
-
 ## Build
 
 Inside the directory where the source files are, simply type `make`
@@ -117,7 +101,6 @@ Large parts of time-signal code come from Henner Zeller [txtempus](https://githu
 
 * txtempus works on Raspberry Pi 3 and Zero W and Jetson Nano ; time-signal works on Raspberry Pi 3, 4 and Zero W.
 * txtempus is written in C++ while time-signal is written in C and doesn't need CMake to be built.
-* time-signal relies on [Wiring Pi](http://wiringpi.com/) library to generate the carrier wave, while txtempus doesn't need any library. So time-signal's code is simpler but dependent on the portability of Wiring Pi.
 * time-signal doesn't use an attenuation pin, so the required hardware is simpler.
 
 Some useful references :
