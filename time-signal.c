@@ -26,10 +26,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <signal.h>
 #include <string.h>
 #include <getopt.h>
-#include <wiringPi.h>
 #include "time-services.h"
-
-#define CLOCKPIN 7		// wiringpi pin's numbering scheme
+#include "clock-control.h"
 
 int usage(const char *msg, const char *progname)
 	{
@@ -52,7 +50,7 @@ void signaux(int sigtype)
 		case SIGTERM : printf ("\nSIGTERM");break;
 		default : printf ("\nUnknow %d",sigtype);
 		}
-	pinMode (CLOCKPIN, OUTPUT);
+	StopClock();
 	printf (" signal received - Programme terminé\n");
 	exit(0);
 	}
@@ -71,14 +69,13 @@ int
 uint64_t minute_bits;
 char
 	*time_source="",
-	date_string[] = "1969-07-21 00:00:00",
-	*lineptr;
-size_t n=0;
+	date_string[] = "1969-07-21 00:00:00";	//,*lineptr;
+//size_t n=0;
 enum time_service service;
 time_t now,minute_start;
 struct timespec target_wait;
 struct tm tv;
-FILE *f;
+//FILE *f;
 
 signal(SIGINT,signaux);
 signal(SIGTERM,signaux);
@@ -122,24 +119,10 @@ else if (strcasecmp(time_source, "JJY60") == 0) service = JJY;
 else if (strcasecmp(time_source, "MSF") == 0) service = MSF;
 else return usage("Please choose a service name with -s option\n", argv[0]);
 
-// Check if board is pi4
-f=fopen("/proc/device-tree/model","r");
-if (f != NULL)
-	{
-	getline (&lineptr, &n, f);
-	if (verbose) puts(lineptr);
-	if (strstr(lineptr, "Pi 4"))
-		{
-		//puts("Raspberry Pi 4 detected.\n");
-		frequency = frequency*16/45; // Frequency correction for Pi4 oscillator (19.2 -> 54 Mhz)
-		}
-	fclose(f);
-	}
+GPIO_init ();
+StartClock(frequency);
 
-wiringPiSetup ();
-pinMode (CLOCKPIN, GPIO_CLOCK);
-gpioClockSet(CLOCKPIN,frequency);
-if (!carrier_only) pinMode (CLOCKPIN, OUTPUT);
+if (carrier_only) EnableClockOutput(1);
 
 // Give max priority to this programm
 struct sched_param sp;
@@ -166,9 +149,9 @@ while(1)
 		target_wait.tv_nsec = 0;
 		clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &target_wait, NULL);
 		
-		if (service == JJY) pinMode (CLOCKPIN, GPIO_CLOCK);	// Set signal to HIGH
-		else pinMode (CLOCKPIN, OUTPUT);					// Set signal to LOW
-		
+		if (service == JJY) EnableClockOutput(1);	// Set signal to HIGH
+		else EnableClockOutput(0);					// Set signal to LOW
+				
 		if (verbose)
 			{
 			fprintf(stderr,"%03d ",modulation);
@@ -178,8 +161,8 @@ while(1)
 		target_wait.tv_nsec = modulation*1e6;
 		clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &target_wait, NULL);
 		
-		if (service == JJY) pinMode (CLOCKPIN, OUTPUT);	// Set signal to LOW
-		else pinMode (CLOCKPIN, GPIO_CLOCK);			// Set signal to HIGH
+		if (service == JJY) EnableClockOutput(0);	//signal to LOW
+		else EnableClockOutput(1);		 			// Set signal to HIGH
 		}
 		
 	minute_start += 60;
